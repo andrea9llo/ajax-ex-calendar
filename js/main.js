@@ -1,30 +1,27 @@
 // stampare gennaio 2018 (E SOLO QUELLO) con caratterizzazione delle relative festività,
 // recuperate interrogando l’API
 
-$(document).ready(function(){
-
-
-
-
+// funzione per generare i giorni del mese
+function giorniMese(mese) { //1
 
 
   $.ajax({
 
 
-    url:"https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=0",
+    url:"https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=" + (mese-1),
     method: "GET",
     success: function(data){
-      var numeroGiorni = moment("2018-01", "YYYY-MM").daysInMonth();
+      var numeroGiorni = moment("2018-" + mese, "YYYY-M").daysInMonth();
       // console.log(numeroGiorni);
       // ciclo su tutti i giorni
       for (var i = 1; i <= numeroGiorni; i++) {
         // console.log(numeroGiorni);
         //Strutturo la data simile alla chiamata ajax
-        var currentDate = moment('2018-01-'+i, 'YYYY-MM-D').format('YYYY-MM-DD');
+        var currentDate = moment('2018-'+mese+'-'+i, 'YYYY-M-D').format('YYYY-MM-DD');
 
         var currentDay =  moment(currentDate).format("DD MMMM");
         // console.log(currentDay);
-        $(".giorni").append('<li data-date="'+ currentDate +'">'+ currentDay +'</li>')
+        $(".giorni").append('<li data-date="'+ currentDate +'">'+ currentDay +'</li>');
       };
 
       var dayParty = data.response;
@@ -49,6 +46,22 @@ $(document).ready(function(){
 
 
   })
+
+
+}
+
+
+$(document).ready(function(){
+
+  giorniMese(1);
+  // giorniMese(2);
+  // giorniMese(3);
+  // giorniMese(4);
+
+
+
+
+
 
 
 

@@ -3,7 +3,27 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+.carousel{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.right,.left{
+  margin-left: 15px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  cursor: pointer;
+}
+.container{
+  text-align: center;
+}
+.giorni{
+  display: none;
+  text-align: left;
+}
+.active{
+  display: inline-block;
+}
 .red{
   color: red;
 }
