@@ -4,8 +4,7 @@
 $(document).ready(function(){
 
 
-  var numeroGiorni = moment("2018-01", "YYYY-MM").daysInMonth();
-  // console.log(numeroGiorni);
+
 
 
 
@@ -15,6 +14,8 @@ $(document).ready(function(){
     url:"https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=0",
     method: "GET",
     success: function(data){
+      var numeroGiorni = moment("2018-01", "YYYY-MM").daysInMonth();
+      // console.log(numeroGiorni);
       // ciclo su tutti i giorni
       for (var i = 1; i <= numeroGiorni; i++) {
         // console.log(numeroGiorni);
@@ -33,13 +34,13 @@ $(document).ready(function(){
         var oggetti = dayParty[j];
 
         var giornoFesta = oggetti.date;
-        console.log(giornoFesta);
+        // console.log(giornoFesta);
         var nomeFesta = oggetti.name;
-        // if ($(this).attr("data-date") === giornoFesta) {
-        //   $("li").css("color", "yellow")
-        // } else {
-        //   $("li").css("color", "red")
-        // }
+
+        // usa l'att selezionato per andare a inserire le festività nei giorni dove ci sono
+        var dataSelezionata = $('li[data-date="'+ giornoFesta +'"]')
+        // console.log(dataSelezionata);
+        dataSelezionata.addClass("red").append(" " + nomeFesta);
 
 
       }
