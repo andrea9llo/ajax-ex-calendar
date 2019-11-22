@@ -18,12 +18,10 @@
   text-align: center;
 }
 .giorni{
-  display: none;
+  display: inline-block;
   text-align: left;
 }
-.active{
-  display: inline-block;
-}
+
 .red{
   color: red;
 }
