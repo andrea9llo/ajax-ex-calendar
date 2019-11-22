@@ -11,7 +11,13 @@ function giorniMese(mese) { //1
     url:"https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=" + (mese-1),
     method: "GET",
     success: function(data){
+      // ripulisco l'html
       $(".giorni").html("");
+      $(".mesi").html("");
+      // nome del mese
+      var nomeMese = moment("2018-" + mese,"YYYY-M").format('MMMM YYYY');
+      $(".mesi").append('<h3>'+ nomeMese +'</h3>');
+
       var numeroGiorni = moment("2018-" + mese, "YYYY-M").daysInMonth();
       // console.log(numeroGiorni);
       // ciclo su tutti i giorni
@@ -20,7 +26,7 @@ function giorniMese(mese) { //1
         //Strutturo la data simile alla chiamata ajax
         var currentDate = moment('2018-'+mese+'-'+i, 'YYYY-M-D').format('YYYY-MM-DD');
 
-        var currentDay =  moment(currentDate).format("DD MMMM");
+        var currentDay =  moment(currentDate).format("DD dddd");
         // console.log(currentDay);
         $(".giorni").append('<li data-date="'+ currentDate +'">'+ currentDay +'</li>');
       };

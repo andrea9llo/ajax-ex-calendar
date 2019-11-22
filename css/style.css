@@ -17,11 +17,24 @@
 .container{
   text-align: center;
 }
+.mesi{
+  margin-bottom: 20px;
+  font-size: 25px;
+  text-transform: capitalize;
+}
 .giorni{
   display: inline-block;
+  width: 700px;
+  font-size: 16px;
   text-align: left;
+  list-style-type: none;
 }
-
+.giorni li{
+  float: left;
+  width: 100px;
+  height: 100px;
+  border: solid 1px black;
+}
 .red{
   color: red;
 }
